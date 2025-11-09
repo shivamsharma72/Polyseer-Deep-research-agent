@@ -34,7 +34,7 @@ export default function TermsOfService() {
                 ⚠️ Important Notice - Not Financial Advice
               </h2>
               <p className="text-amber-800 dark:text-amber-200 leading-relaxed">
-                <strong>Polyseer provides analysis for research and entertainment purposes only.</strong> 
+                <strong>OmniSense provides analysis for research and entertainment purposes only.</strong> 
                 Nothing on this platform constitutes professional financial, investment, trading, or legal advice. 
                 All predictions, probabilities, and analyses are educational tools only. 
                 <strong> Always conduct your own research and consult with qualified professionals before making any financial decisions.</strong>
@@ -47,7 +47,7 @@ export default function TermsOfService() {
                 1. Acceptance of Terms
               </h2>
               <p className="leading-relaxed text-neutral-700 dark:text-neutral-300">
-                By accessing or using Polyseer (&ldquo;Service,&rdquo; &ldquo;Platform,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), you (&ldquo;User,&rdquo; &ldquo;you,&rdquo; or &ldquo;your&rdquo;) 
+                By accessing or using OmniSense (&ldquo;Service,&rdquo; &ldquo;Platform,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), you (&ldquo;User,&rdquo; &ldquo;you,&rdquo; or &ldquo;your&rdquo;) 
                 agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, 
                 do not use our Service.
               </p>
@@ -60,15 +60,15 @@ export default function TermsOfService() {
               </h2>
               
               <p className="leading-relaxed text-neutral-700 dark:text-neutral-300">
-                Polyseer is an AI-powered research platform that provides deep analysis reports and probabilistic assessments
-                for prediction markets, including Polymarket and Kalshi. Our Service uses artificial
+                OmniSense is an AI-powered research platform that provides deep analysis reports and probabilistic assessments
+                for prediction markets, including Polymarket. Our Service uses artificial
                 intelligence, machine learning algorithms, and various data sources to generate comprehensive research analysis.
               </p>
 
               <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
                 <p className="text-blue-800 dark:text-blue-200 leading-relaxed">
-                  <strong>Important:</strong> Polyseer does not facilitate any betting, wagering, or financial transactions.
-                  We only provide research analysis and may include links to third-party platforms (such as Polymarket and Kalshi)
+                  <strong>Important:</strong> OmniSense does not facilitate any betting, wagering, or financial transactions.
+                  We only provide research analysis and may include links to third-party platforms (such as Polymarket)
                   for informational purposes. Any transactions or bets are conducted entirely on third-party platforms
                   and are subject to their own terms and regulations.
                 </p>
@@ -111,7 +111,7 @@ export default function TermsOfService() {
                   2.2 Third-Party Platform Links
                 </h3>
                 <p className="leading-relaxed text-neutral-700 dark:text-neutral-300">
-                  Our Service may include links to third-party prediction market platforms such as Polymarket and Kalshi.
+                  Our Service may include links to third-party prediction market platforms such as Polymarket.
                   We are not affiliated with, endorsed by, or responsible for these third-party platforms.
                   Any use of third-party platforms is subject to their own terms of service, privacy policies,
                   and applicable regulations. We do not facilitate, process, or have any involvement in any

@@ -138,6 +138,7 @@ function AnalysisContent() {
   const [historicalAnalysis, setHistoricalAnalysis] = useState<any>(null);
   const [isLoadingHistory, setIsLoadingHistory] = useState(false);
   const [showDetailedReport, setShowDetailedReport] = useState(false);
+  const [marketQuestion, setMarketQuestion] = useState<string | null>(null);
 
   // Determine if this is a historical view
   const isHistoricalView = !!historyId;
@@ -175,26 +176,15 @@ function AnalysisContent() {
   );
 
   const extractIdentifier = useCallback((url: string) => {
-    // Try Polymarket first
+    // Try Polymarket
     const polymarketMatch = url.match(/polymarket\.com\/event\/([^/?]+)/);
     if (polymarketMatch) return polymarketMatch[1];
-
-    // Try Kalshi full path (with ticker)
-    const kalshiFullMatch = url.match(
-      /kalshi\.com\/markets\/[^/]+\/[^/]+\/([A-Z0-9-]+)/i
-    );
-    if (kalshiFullMatch) return kalshiFullMatch[1];
-
-    // Try Kalshi series path
-    const kalshiSeriesMatch = url.match(/kalshi\.com\/markets\/([a-z0-9-]+)/i);
-    if (kalshiSeriesMatch) return kalshiSeriesMatch[1];
 
     return null;
   }, []);
 
   const detectPlatform = useCallback((url: string) => {
     if (url.includes("polymarket.com")) return "Polymarket";
-    if (url.includes("kalshi.com")) return "Kalshi";
     return "Unknown";
   }, []);
 
@@ -351,6 +341,7 @@ function AnalysisContent() {
 
     if (event.type === "complete" && event.forecast) {
       setForecast(event.forecast);
+      setMarketQuestion(event.forecast.question);
       setIsComplete(true);
       // Mark all steps as complete
       setSteps((prev) =>
@@ -435,7 +426,6 @@ function AnalysisContent() {
   const getPlatformFromUrl = useCallback((url?: string | null) => {
     if (!url) return "Unknown";
     if (url.includes("polymarket.com")) return "Polymarket";
-    if (url.includes("kalshi.com")) return "Kalshi";
     return "Unknown";
   }, []);
 
@@ -909,14 +899,19 @@ function AnalysisContent() {
                 </a>
               </div>
             ) : (
-              <a
-                href={url || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/90 hover:text-white text-sm break-all leading-relaxed hover:underline decoration-white/50 transition-colors"
-              >
-                {url}
-              </a>
+              <div className="flex flex-col gap-2">
+                <h2 className="text-white text-xl md:text-2xl font-semibold leading-relaxed">
+                  {marketQuestion || "Analyzing market..."}
+                </h2>
+                <a
+                  href={url || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/60 hover:text-white/80 text-xs break-all leading-relaxed hover:underline decoration-white/50 transition-colors"
+                >
+                  {url}
+                </a>
+              </div>
             )}
           </div>
         </motion.div>
@@ -1536,15 +1531,6 @@ function AnalysisContent() {
                           <Image
                             src="/polymarket.png"
                             alt="Polymarket"
-                            width={20}
-                            height={20}
-                            className="rounded"
-                          />
-                        )}
-                        {getPlatformFromUrl(url) === "Kalshi" && (
-                          <Image
-                            src="/kalshi.png"
-                            alt="Kalshi"
                             width={20}
                             height={20}
                             className="rounded"
